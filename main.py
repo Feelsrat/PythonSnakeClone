@@ -27,19 +27,20 @@ while game_is_on:
 
     snake.move()
 
-    #simple collision
+    # simple collision
     if snake.segments[0].distance(food) < 15:
         food.refresh()
         snake.extend()
         scoreboard.increase_score()
 
-    if snake.segments[0].xcor() > 280 or snake.segments[0].xcor() < -280 or snake.segments[0].ycor() > 280 or snake.segments[0].ycor() < -280:
+    if snake.segments[0].xcor() > 300 or snake.segments[0].xcor() < -300 or snake.segments[0].ycor() > 300 or \
+            snake.segments[0].ycor() < -300:
         game_is_on = False
         scoreboard.game_over()
         print("You lose")
 
     for segment in snake.segments[1:]:
-        if snake.segments[0].distance(segment) < 10:
+        if snake.segments[0].distance(segment) < 5:
             game_is_on = False
             scoreboard.game_over()
 
